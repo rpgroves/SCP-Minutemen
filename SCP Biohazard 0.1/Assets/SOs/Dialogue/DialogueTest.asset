@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e100a570746e84aa4c749ae1a27c10, type: 3}
+  m_Name: DialogueTest
+  m_EditorClassIdentifier: 
+  lines:
+  - Hello? Hello, hello? Uh, I wanted to record a message for you to help you get
+    settled in on your first night.
+  - Um, I actually worked in that office before you. I'm finishing up my last week
+    now, as a matter of fact.
+  - So, I know it can be a bit overwhelming, but I'm here to tell you there's nothing
+    to worry about. Uh, you'll do fine. So, let's just focus on getting you through
+    your first week. Okay?
