@@ -12,6 +12,7 @@ public class Door : MonoBehaviour, Event
     [SerializeField] GameObject InteractableHandler;
 
     [SerializeField] bool isOpen = false;
+    [SerializeField] bool isVertical = false;
 
     void Start()
     {
@@ -30,17 +31,35 @@ public class Door : MonoBehaviour, Event
     {
         if(!isOpen)
         {
-            Vector3 newPositionTL = new Vector3(-0.9f, 0.0f, 0.0f);
-            topLeftDoor.transform.position += newPositionTL;
+            if(!isVertical)
+            {
+                Vector3 newPositionTL = new Vector3(-0.9f, 0.0f, 0.0f);
+                topLeftDoor.transform.position += newPositionTL;
 
-            Vector3 newPositionTR = new Vector3(0.9f, 0.0f, 0.0f);
-            topRightDoor.transform.position += newPositionTR;
+                Vector3 newPositionTR = new Vector3(0.9f, 0.0f, 0.0f);
+                topRightDoor.transform.position += newPositionTR;
 
-            Vector3 newPositionBL = new Vector3(-0.9f, 0.0f, 0.0f);
-            botLeftDoor.transform.position += newPositionBL;
+                Vector3 newPositionBL = new Vector3(-0.9f, 0.0f, 0.0f);
+                botLeftDoor.transform.position += newPositionBL;
 
-            Vector3 newPositionBR = new Vector3(0.9f, 0.0f, 0.0f);
-            botRightDoor.transform.position += newPositionBR;
+                Vector3 newPositionBR = new Vector3(0.9f, 0.0f, 0.0f);
+                botRightDoor.transform.position += newPositionBR;
+            }
+            else
+            {
+                Vector3 newPositionTL = new Vector3(0.0f, -0.9f, 0.0f);
+                topLeftDoor.transform.position += newPositionTL;
+
+                Vector3 newPositionTR = new Vector3(0.0f, 0.9f, 0.0f);
+                topRightDoor.transform.position += newPositionTR;
+
+                Vector3 newPositionBL = new Vector3(0.0f, -0.9f, 0.0f);
+                botLeftDoor.transform.position += newPositionBL;
+
+                Vector3 newPositionBR = new Vector3(0.0f, 0.9f, 0.0f);
+                botRightDoor.transform.position += newPositionBR;
+                
+            }
             isOpen = true;
         }
     }
@@ -49,18 +68,34 @@ public class Door : MonoBehaviour, Event
     {
         if(isOpen)
         {
-            Vector3 newPositionTL = new Vector3(0.9f, 0.0f, 0.0f);
-            topLeftDoor.transform.position += newPositionTL;
+            if(!isVertical)
+            {
+                Vector3 newPositionTL = new Vector3(0.9f, 0.0f, 0.0f);
+                topLeftDoor.transform.position += newPositionTL;
 
-            Vector3 newPositionTR = new Vector3(-0.9f, 0.0f, 0.0f);
-            topRightDoor.transform.position += newPositionTR;
+                Vector3 newPositionTR = new Vector3(-0.9f, 0.0f, 0.0f);
+                topRightDoor.transform.position += newPositionTR;
 
-            Vector3 newPositionBL = new Vector3(0.9f, 0.0f, 0.0f);
-            botLeftDoor.transform.position += newPositionBL;
+                Vector3 newPositionBL = new Vector3(0.9f, 0.0f, 0.0f);
+                botLeftDoor.transform.position += newPositionBL;
 
-            Vector3 newPositionBR = new Vector3(-0.9f, 0.0f, 0.0f);
-            botRightDoor.transform.position += newPositionBR;
+                Vector3 newPositionBR = new Vector3(-0.9f, 0.0f, 0.0f);
+                botRightDoor.transform.position += newPositionBR;
+            }
+            else
+            {
+                Vector3 newPositionTL = new Vector3(0.0f, 0.9f, 0.0f);
+                topLeftDoor.transform.position += newPositionTL;
 
+                Vector3 newPositionTR = new Vector3(0.0f, -0.9f, 0.0f);
+                topRightDoor.transform.position += newPositionTR;
+
+                Vector3 newPositionBL = new Vector3(0.0f, 0.9f, 0.0f);
+                botLeftDoor.transform.position += newPositionBL;
+
+                Vector3 newPositionBR = new Vector3(0.0f, -0.9f, 0.0f);
+                botRightDoor.transform.position += newPositionBR;
+            }
             isOpen = false;
         }
     }

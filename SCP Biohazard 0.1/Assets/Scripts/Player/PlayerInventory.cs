@@ -10,7 +10,10 @@ public class PlayerInventory : MonoBehaviour
     List<GameObject> ItemsInRange = new List<GameObject>();
     List<GameObject> NPCsInRange = new List<GameObject>();
 
-    List<ItemSO> inventory = new List<ItemSO>();
+    GameObject weapon1;
+    GameObject weapon2;
+
+    List<InventoryObjectSO> inventory = new List<InventoryObjectSO>();
 
     int maxItems = 15;
 
@@ -18,6 +21,11 @@ public class PlayerInventory : MonoBehaviour
     {
         InventoryMenu inventoryMenu = Instantiate(inventoryPrefab, GameObject.Find("Canvas").transform).GetComponent<InventoryMenu>();
         inventoryMenu.CreateInventory(this, maxItems);
+    }
+
+    public void EquipWeapon(int weaponNum, GameObject weapon)
+    {
+
     }
     
     public void HandleInteract()
@@ -27,7 +35,7 @@ public class PlayerInventory : MonoBehaviour
             GameObject i = ItemsInRange[0];
             if(inventory.Count < maxItems)
             {
-                inventory.Add(i.GetComponent<Item>().GetItemSO());
+                inventory.Add(i.GetComponent<InventoryObject>().GetSO());
                 ItemsInRange.Remove(i);
                 Destroy(i);
             }
@@ -72,14 +80,14 @@ public class PlayerInventory : MonoBehaviour
         NPCsInRange.Remove(ob);
     }
 
-    public List<ItemSO> GetInventory()
+    public List<InventoryObjectSO> GetInventory()
     {
         return inventory;
     }
 
     void InventoryToString()
     {
-        foreach(ItemSO i in inventory)
+        foreach(InventoryObjectSO i in inventory)
         {
             Debug.Log(i.getItemName());
         }

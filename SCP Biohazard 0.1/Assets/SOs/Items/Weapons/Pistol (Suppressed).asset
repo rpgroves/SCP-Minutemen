@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373af9004b7d97b468a76fdc426d286a, type: 3}
+  m_Name: Pistol (Suppressed)
+  m_EditorClassIdentifier: 
+  itemName: 
+  itemType: Weapon
+  itemDescription: 
+  spriteBlack: {fileID: 1041551039, guid: 56a3c2fdacdda304b9687e06eef02b2c, type: 3}
+  spriteGlow: {fileID: 454371757, guid: 56a3c2fdacdda304b9687e06eef02b2c, type: 3}
+  damage: 0
+  rateOfFire: 0
+  capacity: 0
+  spread: 0

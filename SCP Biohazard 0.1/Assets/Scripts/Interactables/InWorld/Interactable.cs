@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] GameObject InteractableHandler;
 
     [SerializeField] GameObject InteractableMinigame;
-    [SerializeField] Canvas canvas;
+    Canvas canvas;
     bool isGlow = false;
     bool isSecondState = false;
     bool isActivated = false;
@@ -22,6 +22,7 @@ public class Interactable : MonoBehaviour
 
     void Start()
     {
+        canvas = GameObject.FindObjectOfType<Canvas>();
     }
     
     void OnTriggerEnter2D(Collider2D other)
