@@ -10,22 +10,40 @@ public class PlayerInventory : MonoBehaviour
     List<GameObject> ItemsInRange = new List<GameObject>();
     List<GameObject> NPCsInRange = new List<GameObject>();
 
-    GameObject weapon1;
-    GameObject weapon2;
+    [SerializeField] WeaponSO weaponEmpty;
+    [SerializeField] ItemSO emptyItem;
 
     List<InventoryObjectSO> inventory = new List<InventoryObjectSO>();
+    List<InventoryObjectSO> gear = new List<InventoryObjectSO>();
+    List<WeaponSO> weapons = new List<WeaponSO>();
 
     int maxItems = 15;
+    int maxGear = 3;
+    int maxWeapons = 2;
+
+    void Start()
+    {
+        weapons.Add(weaponEmpty);
+        weapons.Add(weaponEmpty);
+        weapons.Add(weaponEmpty);
+        for(int index = 0; index < maxItems; index++)
+            inventory.Add(emptyItem);
+    }
 
     public void Backpack()
     {
         InventoryMenu inventoryMenu = Instantiate(inventoryPrefab, GameObject.Find("Canvas").transform).GetComponent<InventoryMenu>();
-        inventoryMenu.CreateInventory(this, maxItems);
+        inventoryMenu.CreateInventory(this, maxItems, maxGear, maxWeapons);
     }
 
-    public void EquipWeapon(int weaponNum, GameObject weapon)
+    public void EquipWeapon(int weaponNum, WeaponSO weapon)
     {
+        weapons[weaponNum - 1] = weapon;
+    }
 
+    public WeaponSO getWeapon(int num)
+    {
+        return weapons[num - 1];
     }
     
     public void HandleInteract()
@@ -33,12 +51,17 @@ public class PlayerInventory : MonoBehaviour
         if(ItemsInRange.Count != 0)
         {
             GameObject i = ItemsInRange[0];
-            if(inventory.Count < maxItems)
+            for(int index = 0; index < maxItems; index++)
             {
-                inventory.Add(i.GetComponent<InventoryObject>().GetSO());
-                ItemsInRange.Remove(i);
-                Destroy(i);
+                if(inventory[index].getItemType() == "fakeObject")
+                {
+                    inventory[index] = i.GetComponent<InventoryObject>().GetSO();
+                    ItemsInRange.Remove(i);
+                    Destroy(i);
+                    return;
+                }
             }
+            Debug.Log("inventory full!");
         }
         else if(InteractablesInRange.Count != 0)
         {
@@ -85,11 +108,41 @@ public class PlayerInventory : MonoBehaviour
         return inventory;
     }
 
-    void InventoryToString()
+    public List<InventoryObjectSO> GetGear()
     {
-        foreach(InventoryObjectSO i in inventory)
+        return gear;
+    }
+
+    public List<WeaponSO> GetWeapons()
+    {
+        return weapons;
+    }
+
+    public void removeFromInventory(InventoryObjectSO i)
+    {
+        inventory.Remove(i);
+        inventory.Add(emptyItem);
+    }
+
+    public void removeFromGear(InventoryObjectSO i)
+    {
+        gear.Remove(i);
+    }
+
+    public void removeFromWeapons(int i)
+    {
+        weapons[i] = weaponEmpty;
+    }
+
+    public void addToItems(InventoryObjectSO i)
+    {
+        for(int index = 0; index < maxItems; index++)
         {
-            Debug.Log(i.getItemName());
+            if(inventory[index].getItemType() == "fakeObject")
+            {
+                inventory[index] = i;
+                return;
+            }
         }
     }
 }

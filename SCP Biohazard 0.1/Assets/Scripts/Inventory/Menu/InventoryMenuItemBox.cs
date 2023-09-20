@@ -8,6 +8,7 @@ public class InventoryMenuItemBox : MonoBehaviour
     [SerializeField] GameObject ItemBoxImage;
     [SerializeField] InventoryMenu inventoryMenu;
     InventoryObjectSO item;
+    [SerializeField] bool isEquipped = false;
 
     Canvas canvas;
     Camera mainCamera;
@@ -25,7 +26,7 @@ public class InventoryMenuItemBox : MonoBehaviour
 
     public void ClickBox()
     {
-        inventoryMenu.UpdateItemMenu(item);
+        inventoryMenu.UpdateItemMenu(item, isEquipped);
     }
 
     public void UpdateBox(InventoryObjectSO i)

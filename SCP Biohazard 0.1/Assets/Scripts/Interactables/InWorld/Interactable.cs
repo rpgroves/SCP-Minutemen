@@ -11,7 +11,6 @@ public class Interactable : MonoBehaviour
 
     [SerializeField] GameObject InteractableMinigame;
     Canvas canvas;
-    bool isGlow = false;
     bool isSecondState = false;
     bool isActivated = false;
 

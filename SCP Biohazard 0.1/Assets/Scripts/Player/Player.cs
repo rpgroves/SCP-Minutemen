@@ -9,17 +9,29 @@ public class Player : MonoBehaviour
     PlayerMovement playerMovement;
     PlayerInventory playerInventory;
     PlayerHealth playerHealth;
+    [SerializeField] GameObject weaponParentObject;
+    WeaponParent weaponParent;
 
     void Start()
     {
         playerMovement = this.GetComponentInParent<PlayerMovement>();
         playerInventory = this.GetComponentInParent<PlayerInventory>();
         playerHealth = this.GetComponentInParent<PlayerHealth>();
+        weaponParent = weaponParentObject.GetComponent<WeaponParent>();
+        weaponParentObject.SetActive(false);
     }
 
     void Update()
     {
         playerMovement.HandleMovement(rawInput);
+        HandleWeaponPosition();
+    }
+
+    void HandleWeaponPosition()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Camera.main.nearClipPlane;
+        weaponParent.PointerPosition = Camera.main.ScreenToWorldPoint(mousePos);
     }
 
     void OnMove(InputValue value)
@@ -45,5 +57,30 @@ public class Player : MonoBehaviour
     void OnRun()
     {
         playerMovement.Run();
+    }
+
+    void OnWeaponChange1()
+    {
+        WeaponSO w = playerInventory.getWeapon(1);
+        if(w.getItemType() != "fakeObject")
+        {
+            weaponParentObject.SetActive(true);
+            weaponParent.ChangeWeapon(w);
+        }
+    }
+
+    void OnWeaponChange2()
+    {
+        WeaponSO w = playerInventory.getWeapon(2);
+        if(w.getItemType() != "fakeObject")
+        {
+            weaponParentObject.SetActive(true);
+            weaponParent.ChangeWeapon(w);
+        }
+    }
+
+    public void OnWeaponChange3()
+    {
+        weaponParentObject.SetActive(false);
     }
 }
