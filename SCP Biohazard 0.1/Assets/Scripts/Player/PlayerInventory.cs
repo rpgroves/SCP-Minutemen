@@ -16,6 +16,8 @@ public class PlayerInventory : MonoBehaviour
     List<InventoryObjectSO> inventory = new List<InventoryObjectSO>();
     List<InventoryObjectSO> gear = new List<InventoryObjectSO>();
     List<WeaponSO> weapons = new List<WeaponSO>();
+    WeaponSO currentWeapon;
+    AmmoBar ammoBar;
 
     int maxItems = 15;
     int maxGear = 3;
@@ -23,9 +25,14 @@ public class PlayerInventory : MonoBehaviour
 
     void Start()
     {
+        currentWeapon = weaponEmpty;
+        ammoBar = GameObject.Find("AmmoBar").GetComponent<AmmoBar>();
+        ammoBar.CreateBar(currentWeapon, this);
+
         weapons.Add(weaponEmpty);
         weapons.Add(weaponEmpty);
         weapons.Add(weaponEmpty);
+
         for(int index = 0; index < maxItems; index++)
             inventory.Add(emptyItem);
     }
@@ -39,6 +46,12 @@ public class PlayerInventory : MonoBehaviour
     public void EquipWeapon(int weaponNum, WeaponSO weapon)
     {
         weapons[weaponNum - 1] = weapon;
+    }
+
+    public void UseWeapon(WeaponSO weapon)
+    {
+        currentWeapon = weapon;
+        ammoBar.CreateBar(weapon, this);
     }
 
     public WeaponSO getWeapon(int num)
@@ -144,5 +157,16 @@ public class PlayerInventory : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void ShootBullet()
+    {
+        ammoBar.ShootRounds(currentWeapon.getRateOfFire());
+    }
+
+    public void Reload()
+    {
+        currentWeapon.Reload(100);
+        ammoBar.Reload(100);
     }
 }

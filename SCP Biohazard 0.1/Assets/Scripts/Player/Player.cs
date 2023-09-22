@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     {
         playerMovement.HandleMovement(rawInput);
         HandleWeaponPosition();
+        HandleWeaponRotation();
     }
 
     void HandleWeaponPosition()
@@ -34,14 +35,32 @@ public class Player : MonoBehaviour
         weaponParent.PointerPosition = Camera.main.ScreenToWorldPoint(mousePos);
     }
 
+    void HandleWeaponRotation()
+    {
+        if(((weaponParent.PointerPosition - (Vector2)transform.position).normalized).x < 0)
+        {
+            weaponParent.Rotate(-(weaponParent.PointerPosition - (Vector2)transform.position).normalized, false);
+        }
+        else
+        {
+            weaponParent.Rotate((weaponParent.PointerPosition - (Vector2)transform.position).normalized, true);
+        }
+    }
+
     void OnMove(InputValue value)
     {
         rawInput = value.Get<Vector2>();
     }
 
+    void OnFire()
+    {
+        playerInventory.ShootBullet();
+        weaponParent.HandleFire();
+    }
+
     void OnReload()
     {
-        Debug.Log("reloading!");
+        playerInventory.Reload();
     }
 
     void OnBackpack()
@@ -66,6 +85,7 @@ public class Player : MonoBehaviour
         {
             weaponParentObject.SetActive(true);
             weaponParent.ChangeWeapon(w);
+            playerInventory.UseWeapon(w);
         }
     }
 
@@ -76,11 +96,13 @@ public class Player : MonoBehaviour
         {
             weaponParentObject.SetActive(true);
             weaponParent.ChangeWeapon(w);
+            playerInventory.UseWeapon(w);
         }
     }
 
     public void OnWeaponChange3()
     {
         weaponParentObject.SetActive(false);
+        playerInventory.UseWeapon(playerInventory.getWeapon(3));
     }
 }

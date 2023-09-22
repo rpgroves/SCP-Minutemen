@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Keycard
+  - Entity
   layers:
   - Default
   - TransparentFX

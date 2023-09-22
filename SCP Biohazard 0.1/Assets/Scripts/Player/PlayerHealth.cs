@@ -4,22 +4,51 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float playerMaxHealth = 100;
-    [SerializeField] float playerHealth;
+    [SerializeField] int playerMaxHealth = 5;
+    [SerializeField] int playerHealth = 5;
+    [SerializeField] int playerMaxShield = 3;
+    [SerializeField] int playerShield = 1;
     PlayerMovement playerMovement;
+    HealthBar healthBar;
+    HealthBar shieldBar;
 
     void Start()
     {
         playerHealth = playerMaxHealth;
         playerMovement = this.GetComponentInParent<PlayerMovement>();
+        healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+        shieldBar = GameObject.Find("ShieldBar").GetComponent<HealthBar>();
+        healthBar.CreateBar(playerHealth, playerMaxHealth);
+        shieldBar.CreateBar(playerShield, playerMaxShield);
     }
 
-    public void TakeDamage(float damage)
+    public void HealHealth(int healAmount)
     {
-        playerHealth = playerHealth - damage;
-        if(playerHealth >= 0)
+        playerHealth += healAmount;
+        if(playerHealth > playerMaxHealth)
         {
-            playerHealth = 0;
+            playerHealth = playerMaxHealth;
+        }
+    }
+
+    public void HealShield(int healAmount)
+    {
+        playerShield += healAmount;
+        if(playerShield > playerMaxShield)
+        {
+            playerShield = playerMaxShield;
+        }
+    }
+
+    public void TakeDamage()
+    {
+        if(playerShield >= 0)
+            playerShield--;
+        else
+            playerHealth--;
+
+        if(playerHealth == 0)
+        {
             playerMovement.HandlePlayerDeath();
         }
     }

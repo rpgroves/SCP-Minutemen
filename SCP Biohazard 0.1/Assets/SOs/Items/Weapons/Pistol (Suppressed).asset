@@ -17,7 +17,11 @@ MonoBehaviour:
   itemDescription: 
   spriteBlack: {fileID: 1041551039, guid: 56a3c2fdacdda304b9687e06eef02b2c, type: 3}
   spriteGlow: {fileID: 454371757, guid: 56a3c2fdacdda304b9687e06eef02b2c, type: 3}
+  fullBullet: {fileID: 448842876, guid: 5c27bd36079ab304c806cfbcbe27875e, type: 3}
+  emptyBullet: {fileID: -292582275, guid: 5c27bd36079ab304c806cfbcbe27875e, type: 3}
+  bulletPrefab: {fileID: 1226505007762545379, guid: 2ef232fe6683fc54ba7496d3a5023bb3, type: 3}
   damage: 5
-  rateOfFire: 0
+  rateOfFire: 1
   capacity: 10
   spread: 10
+  currentAmmo: 10

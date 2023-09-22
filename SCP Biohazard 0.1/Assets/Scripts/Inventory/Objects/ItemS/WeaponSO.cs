@@ -11,11 +11,27 @@ public class WeaponSO : ScriptableObject, InventoryObjectSO
     [SerializeField] string itemDescription;
     [SerializeField] Sprite spriteBlack;
     [SerializeField] Sprite spriteGlow;
+    [SerializeField] Sprite fullBullet;
+    [SerializeField] Sprite emptyBullet;
+    [SerializeField] GameObject bulletPrefab;
 
     [SerializeField] int damage;
     [SerializeField] int rateOfFire;
     [SerializeField] int capacity;
     [SerializeField] int spread;
+    [SerializeField] int currentAmmo;
+
+    public void DecrementCurrentAmmo(int shotsFired)
+    {
+        currentAmmo -= shotsFired;
+    }
+    public void Reload(int shotsInReserve)
+    {
+        if(shotsInReserve >= capacity)
+            currentAmmo = capacity;
+        else
+            currentAmmo += shotsInReserve;
+    }
 
     public string getItemName()
     {
@@ -37,6 +53,18 @@ public class WeaponSO : ScriptableObject, InventoryObjectSO
     {
         return spriteGlow;
     }
+    public Sprite getFullBullet()
+    {
+        return fullBullet;
+    }
+    public Sprite getEmptyBullet()
+    {
+        return emptyBullet;
+    }
+    public GameObject getBulletPrefab()
+    {
+        return bulletPrefab;
+    }
 
     
     public int getDamage()
@@ -54,5 +82,9 @@ public class WeaponSO : ScriptableObject, InventoryObjectSO
     public int getSpread()
     {
         return spread;
+    }
+    public int getCurrentAmmo()
+    {
+        return currentAmmo;
     }
 }
