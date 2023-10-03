@@ -1,0 +1,128 @@
+central nuclear silo
+light containment preceedes heavy containment
+entrance zone preceeds light containment
+
+entrance:
+- mostly offices
+- security stations
+- some power systems
+- garage + tunnel to outside
+- intercom room
+- Cafeteria
+- Main control station (power switches,
+  door controls, security controls / overrides)
+- storage closets
+
+Light Containment:
+- SCP Containment
+- D Class Containment
+- Offices
+- Cafeteria
+- some power systems
+- Light Containment Control Station
+- storage closets
+- server room small
+
+heavy Containment:
+- SCP containment
+- Sewer tunnels
+- Vents
+- storage closets
+- 
+
+Administration zone:
+- highest security
+- file rooms
+- server room largest
+- small control room with access to silo
+
+
+
+
+Encounter types:
+- EZ: SCP-106 and Enemy units
+- LZ: SCP-173, SCP-049, SCP-mask, Enemy Units
+- HZ: SCP-096, SCP-682 chase?, Enemy Units
+
+Enviromental items:
+	General / Hallways:
+		-TV screens
+		-vending machines
+		-MTF chalk
+		-Signs for different rooms (H for infirmary, other symbols)
+		-paintings
+		-trash cans
+
+	Welcome Center:
+		-TV screens
+		-vending machines
+		-water fountain?
+		-airport style chairs
+		-paintings
+		-secretary / welcome counter
+		-trash cans
+	Office:
+		-painting
+		-laptop / desktop computer
+		-desk and desk chair
+		-filing cabinets
+		-trash can
+	Cubicle Office:
+		-desk / desk chair
+		-cubicle
+		-vending machines
+		-filing cabinets
+		-trash cans
+	Conference Room:
+		-desk chairs
+		-conference table
+		-paintings
+		-whiteboards
+		-trash can
+	Bathroom:
+		-stalls
+		-sinks
+		-trash can
+	Break Room:
+		-trash can
+		-couches
+		-TV / tv screen
+		-vending machines
+		-tables
+	Infirmary:
+		-medical beds
+		-counters
+		-heart rate monitors
+		-medical boxes on the walls
+		-special chamber to raise character max health
+	MTF Barracks:
+		-counters
+		-ammo boxes
+		-weapon racks
+		-medical boxes on walls
+		-weapon crate for player to get new weapon
+		-lockers
+	Guard Shack:
+		-counters
+		-ammo boxes
+		-weapon racks
+		-medical boxes on walls
+		-lockers
+	Server Room:
+		-servers
+		-desktop computer somewhere to access files
+	Power Substation:
+		-generators (animated on / off)
+		-junction box
+		-breaker box
+		-switches for power
+	Storage Closet:
+		-shelves of boxes
+		-
+
+List to cross off:
+
+-TV screens
+
+-junction box
+-breaker box
