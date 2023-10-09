@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Button : MonoBehaviour
+public class KeypadButton : MonoBehaviour
 {
     [SerializeField] bool canBeUnswitchedManually = false;
     [SerializeField] string input;
