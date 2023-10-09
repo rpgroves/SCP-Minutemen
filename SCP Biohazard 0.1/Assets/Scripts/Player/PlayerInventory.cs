@@ -164,9 +164,9 @@ public class PlayerInventory : MonoBehaviour
         ammoBar.ShootRounds(currentWeapon.getRateOfFire());
     }
 
-    public void Reload()
+    public int Reload()
     {
-        currentWeapon.Reload(100);
         ammoBar.Reload(100);
+        return 100;
     }
 }

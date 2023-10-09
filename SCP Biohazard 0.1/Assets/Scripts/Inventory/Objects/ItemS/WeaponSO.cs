@@ -19,19 +19,6 @@ public class WeaponSO : ScriptableObject, InventoryObjectSO
     [SerializeField] int rateOfFire;
     [SerializeField] int capacity;
     [SerializeField] int spread;
-    [SerializeField] int currentAmmo;
-
-    public void DecrementCurrentAmmo(int shotsFired)
-    {
-        currentAmmo -= shotsFired;
-    }
-    public void Reload(int shotsInReserve)
-    {
-        if(shotsInReserve >= capacity)
-            currentAmmo = capacity;
-        else
-            currentAmmo += shotsInReserve;
-    }
 
     public string getItemName()
     {
@@ -82,9 +69,5 @@ public class WeaponSO : ScriptableObject, InventoryObjectSO
     public int getSpread()
     {
         return spread;
-    }
-    public int getCurrentAmmo()
-    {
-        return currentAmmo;
     }
 }

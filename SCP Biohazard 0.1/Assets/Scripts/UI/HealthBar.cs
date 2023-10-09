@@ -25,7 +25,7 @@ public class HealthBar : MonoBehaviour
         PrintHearts();
     }
 
-    public void LoseDamage()
+    public void TakeDamage()
     {
         health--;
         PrintHearts();

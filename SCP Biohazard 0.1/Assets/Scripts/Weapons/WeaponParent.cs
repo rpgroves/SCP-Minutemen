@@ -23,9 +23,15 @@ public class WeaponParent : MonoBehaviour
         
     }
 
+    public void Reload(int a)
+    {
+        weapon.HandleReload(a);
+    }
+
     public void ChangeWeapon(WeaponSO w)
     {
         weapon.ChangeWeapon(w);
+        weapon.HandleReload(w.getCapacity());
     }
 
     public void HandleFire()

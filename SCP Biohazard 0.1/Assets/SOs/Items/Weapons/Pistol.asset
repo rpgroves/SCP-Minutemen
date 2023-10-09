@@ -24,4 +24,3 @@ MonoBehaviour:
   rateOfFire: 1
   capacity: 10
   spread: 20
-  currentAmmo: 10

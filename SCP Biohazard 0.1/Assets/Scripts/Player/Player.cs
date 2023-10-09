@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
 
     void OnReload()
     {
-        playerInventory.Reload();
+        weaponParent.Reload(playerInventory.Reload());
     }
 
     void OnBackpack()

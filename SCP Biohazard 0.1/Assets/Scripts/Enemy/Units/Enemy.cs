@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
 
     GameObject target;
 
+    float shotTimer = 0.0f;
+
     void Start()
     {
         weaponParent = weaponParentObject.GetComponent<WeaponParent>();
@@ -22,6 +24,13 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         HandleWeaponRotation();
+        shotTimer += Time.deltaTime;
+        if(shotTimer > 3.0f)
+        {
+            shotTimer = 0.0f;
+            Debug.Log("shooting!");
+            weaponParent.HandleFire();
+        }
     }
 
     void HandleWeaponRotation()

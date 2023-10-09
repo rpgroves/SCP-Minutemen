@@ -43,9 +43,15 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage()
     {
         if(playerShield >= 0)
+        {
+            shieldBar.TakeDamage();
             playerShield--;
+        }
         else
+        {
+            healthBar.TakeDamage();
             playerHealth--;
+        }
 
         if(playerHealth == 0)
         {

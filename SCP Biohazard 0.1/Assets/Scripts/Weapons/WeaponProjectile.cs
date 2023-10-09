@@ -31,5 +31,6 @@ public class WeaponProjectile : MonoBehaviour
                 other.gameObject.GetComponentInParent<EnemyHealth>().TakeDamage(damage);
         }
         Destroy(me);
+        
     }
 }

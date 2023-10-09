@@ -16,7 +16,7 @@ public class AmmoBar : MonoBehaviour
     public void CreateBar(WeaponSO w, PlayerInventory p)
     {
         weapon = w;
-        ammo = weapon.getCurrentAmmo();
+        ammo = weapon.getCapacity();
         maxAmmo = weapon.getCapacity();
         fullBullet = weapon.getFullBullet();
         emptyBullet = weapon.getEmptyBullet();
