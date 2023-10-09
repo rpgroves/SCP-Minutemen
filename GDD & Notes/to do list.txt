@@ -1,0 +1,33 @@
+SCP game systems needed and created
+
+Main menu:
+	-giant door with the scp logo on it and a keycard scanner next to it
+	-clicking the scanner brings up a scanner minigame, scanning the card triggers
+	door opening animation
+	-there is an exit sign on a smaller door next to the main door
+	-there is a computer sitting on a desk nearby with the word options hovering over it
+
+need:
+	
+	-Enemies that can patrol areas or be spawned into an encounter
+	
+	-SCP 106 that can put decay zones on the ground and teleport the player into
+	pocket dimension
+
+	-enemy enounter health bar
+	
+	-finished dialogue system
+	
+	-different tile sets for rooms (ART)
+	-objects for room props (ART)
+	-
+	
+	-Missions or objectives that the player must do (put on HUD?)
+	-
+
+done:
+	-Player that can pick up weapons and items and shoot enemies
+	-Objects that can be interacted with in order to trigger different events
+	-items that can be picked up
+	-player health bar, shield bar, ammo bar
+	-Enemies that fight the player
