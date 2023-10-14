@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractableHandler : MonoBehaviour
 {
     [SerializeField] GameObject[] controllers;
-    [SerializeField] GameObject ControlledEvent;
+    [SerializeField] GameObject[] ControlledEvent;
     List<bool> controllerStatus = new List<bool>();
 
     void Start()
@@ -37,12 +37,14 @@ public class InteractableHandler : MonoBehaviour
         if(allTrue)
         {
             //Debug.Log("sending signal...");
-            ControlledEvent.GetComponent<Event>().EventTriggered();
+            for(int x = 0; x < controllerStatus.Count; x++)
+                ControlledEvent[x].GetComponent<Event>().EventTriggered();
         }
         else
         {
             //Debug.Log("sending signal...");
-            ControlledEvent.GetComponent<Event>().EventStopped();
+            for(int x = 0; x < controllerStatus.Count; x++)
+                ControlledEvent[x].GetComponent<Event>().EventStopped();
         }
     }
 }

@@ -44,7 +44,7 @@ public class NPCController : MonoBehaviour
                 bubble.GetComponent<SpriteRenderer>().sprite = bubbleGlow;
             else
                 bubble.GetComponent<SpriteRenderer>().sprite = bubbleRegular;
-            other.GetComponentInParent<PlayerInventory>().setNPC(me);
+            other.GetComponentInParent<PlayerInventory>().unsetNPC(me);
         }
     }
 }
