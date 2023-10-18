@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Enemy : MonoBehaviour
     WeaponParent weaponParent;
 
     GameObject target;
+    NavMeshAgent agent;
 
     float shotTimer = 0.0f;
 
@@ -19,6 +21,10 @@ public class Enemy : MonoBehaviour
         weaponParent = weaponParentObject.GetComponent<WeaponParent>();
         weaponParentObject.SetActive(true);
         weaponParent.ChangeWeapon(weapon);
+
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     void Update()
@@ -30,6 +36,15 @@ public class Enemy : MonoBehaviour
             shotTimer = 0.0f;
             Debug.Log("shooting!");
             weaponParent.HandleFire();
+        }
+
+        if(target == null)
+        {
+            agent.SetDestination(this.gameObject.transform.position);
+        }
+        if(target != null)
+        {
+            agent.SetDestination(target.transform.position);
         }
     }
 

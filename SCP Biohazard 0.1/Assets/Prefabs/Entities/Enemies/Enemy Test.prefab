@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 1117742472069172843}
+  PointerPosition: {x: 0, y: 0}
 --- !u!1 &1628255719491358638
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,6 +62,7 @@ GameObject:
   - component: {fileID: 7167369552035240733}
   - component: {fileID: 4047178218367544535}
   - component: {fileID: 5915693313689766013}
+  - component: {fileID: 8448743996030565170}
   m_Layer: 0
   m_Name: Enemy Test
   m_TagString: Entity
@@ -268,6 +270,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!195 &8448743996030565170
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628255719491358638}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.21875
+  m_Speed: 1.5
+  m_Acceleration: 3
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 4
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.8125
+  m_BaseOffset: 0.40625
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &4919228626298399343
 GameObject:
   m_ObjectHideFlags: 0

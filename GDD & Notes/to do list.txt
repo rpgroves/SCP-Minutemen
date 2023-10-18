@@ -15,6 +15,7 @@ need:
 	pocket dimension
 
 	-enemy enounter health bar
+	-link player health bar and add timer for shield recharge
 	
 	-finished dialogue system
 	
