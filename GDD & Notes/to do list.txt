@@ -1,5 +1,34 @@
 SCP game systems needed and created
 
+10/27-10/29
+	-make main menu
+	-make credits
+	-animate main menu
+	-add transition into gameplay (bootcamp + story scenes?)
+	-make the story make more sense
+	-add chaos insurgency troops
+	-ANIMATE ENEMY IN WORLD
+	-possible pop up menu with a superior talking to the player?
+	(could be a new way to deliver dialogue)
+
+done:	
+-add in extra art features i didnt put in yet
+
+opening dialogue
+-welcome to the SCP foundation agent.
+-incase youve forgotten, we here at the SCP foundation specialize in three things
+securing, containing, and protecting anamalous materials and organisms
+-the foundation does research into the entities we contain, also known as SCPs
+in order to understand and them and protect the world from their influence.
+-youll be joining us here as an MTF operative.
+-MTFs, or Mobile Task Forces, are teams of military operatives
+who specialize in specific tasks that the foundation may need completed
+-Youll be joininng Bravo-7, designated the Minutemen.
+-Under my command the minutemen specialize in securing areas and containing threats
+while we await backup and teams that are trained to combat the threat we contain.
+-Essentially, we are expected to respond faster than anyone else
+to secure an area, then we keep a situation stable until the right people arrive.
+
 Main menu:
 	-giant door with the scp logo on it and a keycard scanner next to it
 	-clicking the scanner brings up a scanner minigame, scanning the card triggers
@@ -7,23 +36,26 @@ Main menu:
 	-there is an exit sign on a smaller door next to the main door
 	-there is a computer sitting on a desk nearby with the word options hovering over it
 
+To Do for setup:
+- dialogue to open the game after player moves for the first time
+- Dialogue directing the player into the welcome center
+- dialogue warning player of enemies inside
+- 
+
 need:
 	
-	-Enemies that can patrol areas or be spawned into an encounter
+	-Enemies that can patrol areas
+	-enemy projectiles cant hit other enemies
 	
 	-SCP 106 that can put decay zones on the ground and teleport the player into
 	pocket dimension
 
 	-enemy enounter health bar
-	-link player health bar and add timer for shield recharge
 	
 	-finished dialogue system
 	
 	-different tile sets for rooms (ART)
 	-objects for room props (ART)
-	-
-	
-	-Missions or objectives that the player must do (put on HUD?)
 	-
 
 done:
@@ -32,3 +64,5 @@ done:
 	-items that can be picked up
 	-player health bar, shield bar, ammo bar
 	-Enemies that fight the player
+	-Enemies that can track to the player
+	-link player health bar and add timer for shield recharge
