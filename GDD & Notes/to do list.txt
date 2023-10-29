@@ -1,21 +1,33 @@
 SCP game systems needed and created
 
 10/27-10/29
-	-make main menu
+	-player input system
+	-player animator
+	-player walk sideways
+	-player cutscene script
+	-commander dialogue	
+
 	-make credits
-	-animate main menu
 	-add transition into gameplay (bootcamp + story scenes?)
 	-make the story make more sense
-	-add chaos insurgency troops
+	
 	-ANIMATE ENEMY IN WORLD
 	-possible pop up menu with a superior talking to the player?
 	(could be a new way to deliver dialogue)
 
+	-add lighting
+	-make lighting turn on/off as an event?
+	-make dialogue, item pickup, encounter start/end, etc into possible event trigger
+
 done:	
--add in extra art features i didnt put in yet
+	-make main menu
+	-animate main menu
+	-add in extra art features i didnt put in yet
+	-add chaos insurgency troops
 
 opening dialogue
--welcome to the SCP foundation agent.
+-welcome to the SCP foundation soldier. Weve chosen you because of your past military
+experience and your record as a reliable agent.
 -incase youve forgotten, we here at the SCP foundation specialize in three things
 securing, containing, and protecting anamalous materials and organisms
 -the foundation does research into the entities we contain, also known as SCPs

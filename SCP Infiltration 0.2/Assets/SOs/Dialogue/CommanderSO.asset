@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e100a570746e84aa4c749ae1a27c10, type: 3}
+  m_Name: CommanderSO
+  m_EditorClassIdentifier: 
+  lines:
+  - Welcome to the SCP Foundation soldier.
+  - Weve chosen you because of your past military experience and your record as a
+    reliable agent.
+  - Incase you've forgotten, the Foundation specializes in Securing, Containing,
+    and Protecting unusual or dangerous objects, creatures, and phenomena.
+  - We call these things "anomalies." The Foundation studies them in order to understand
+    and control them, as well as protect the general public.
+  - As part of that mission, we make sure that the general public remains unaware
+    of such dangerous anomalies.
+  - You are joining us as part of an MTF unit, or Mobile Task Force. Our unit is
+    Task Force Delta-4, Designated "The Minutemen".
+  - We are a rapid response team that specializes in quickly deploying to and controling
+    a scene. Our main tasks are assessing a situation and quelling a threat until
+    backup can arrive.
+  - As such we are always the first team to reach a scene, thus the designation "The
+    Minutemen."
