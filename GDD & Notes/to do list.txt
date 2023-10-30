@@ -1,15 +1,15 @@
 SCP game systems needed and created
 
 10/27-10/29
-	-player input system
-	-player animator
-	-player walk sideways
-	-player cutscene script
-	-commander dialogue	
-
+	-one time dialogue should be deleting
+	-boxes for navmesh shouldnt be showing in builds
+	-enemies shoudlnt have 1 bullet of health
+	-counters shouldnt block bullets
+	-add flashlights to enemies
+	-make sure all objects are subjected to lighting 
+	(sprite lit default material, hit the eye button)
+	
 	-make credits
-	-add transition into gameplay (bootcamp + story scenes?)
-	-make the story make more sense
 	
 	-ANIMATE ENEMY IN WORLD
 	-possible pop up menu with a superior talking to the player?
@@ -24,6 +24,15 @@ done:
 	-animate main menu
 	-add in extra art features i didnt put in yet
 	-add chaos insurgency troops
+	-player input system
+	-player animator
+	-player walk sideways
+	-player cutscene script
+	-commander dialogue
+	-game logo and name
+	-company logo and 
+	-add transition into gameplay (bootcamp + story scenes?)
+	-make the story make more sense
 
 opening dialogue
 -welcome to the SCP foundation soldier. Weve chosen you because of your past military

@@ -19,10 +19,9 @@ public class Keypad : MonoBehaviour, Minigame
         guiText.text = "";
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateCode(string code)
     {
-        
+        passcode = code;
     }
 
     public void PressButton(string buttonInput) 

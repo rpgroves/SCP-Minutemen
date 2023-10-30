@@ -18,6 +18,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] Sprite spriteGlow;
     [SerializeField] Sprite spriteSecondBlack;
     [SerializeField] Sprite spriteSecondGlow;
+    [SerializeField] string code = "";
 
     void Start()
     {
@@ -49,9 +50,15 @@ public class Interactable : MonoBehaviour
 
     public void PlayerInteraction()
     {
-        Minigame game = Instantiate(InteractableMinigame, canvas.transform).GetComponent<Minigame>();
+        
+        GameObject gameOB = Instantiate(InteractableMinigame, canvas.transform);
+        Minigame game = gameOB.GetComponent<Minigame>();
         game.MinigameTriggered(isActivated);
         game.setInteractable(this);
+        if (gameOB.TryGetComponent<Keypad>(out Keypad keypad))
+        {
+            keypad.UpdateCode(code);
+        }
     }
 
     public void MinigameSwitched(bool wasWon)
