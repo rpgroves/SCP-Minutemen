@@ -1,9 +1,30 @@
 SCP game systems needed and created
 
 10/27-10/29
+	boss ideas: SCP 106
+	-phase 1: 	
+		-he tries to follow you around the welcome center
+		-he creates decay zones on the ground that damage after X seconds 
+		(think the hitscan from clash royale game)
+		-he shoots bits of decay at the player
+		(make decay zones on the ground after going x distance?)
+	-phase 2:
+		-when at half health, he takes you into his pocket dimension
+		-he cannot take damage here
+		-you must destroy 3 void hearts to escape and weaken him 
+		(hollow knight reference lol)
+		-same attacks? maybe add more moves for this phase
+	-phase 3:
+		-pity phase
+		-boss follows player around very slowly, using weaker versions of prior attacks
+		-when at 10% health, he stops and sits still
+		player can keep damaging and it shows him slowly being destroyed by the final shots
+
 	-one time dialogue should be deleting
 	-boxes for navmesh shouldnt be showing in builds
 	-enemies shoudlnt have 1 bullet of health
+	-enemies should not shoot each other
+	-bullets should not destroy each other mid air
 	-counters shouldnt block bullets
 	-add flashlights to enemies
 	-make sure all objects are subjected to lighting 
