@@ -25,7 +25,10 @@ public class EnemyEncounterController : MonoBehaviour
             player = other.gameObject;
             for(int i = 0; i < enemies.Length; i++)
             {
-                enemies[i].GetComponent<Enemy>().setTarget(other.gameObject);
+                if(enemies[index].TryGetComponent<Enemy>(out Enemy e))
+                    enemies[i].GetComponent<Enemy>().setTarget(other.gameObject);
+                else if(enemies[index].TryGetComponent<SCP106>(out SCP106 e2))
+                    e2.setTarget(other.gameObject);
             }
         }
     }
@@ -41,7 +44,10 @@ public class EnemyEncounterController : MonoBehaviour
         {
             timeElapsed = 0;
             enemies[index].SetActive(true);
-            enemies[index].GetComponent<Enemy>().setEncounter(this);
+            if(enemies[index].TryGetComponent<Enemy>(out Enemy e))
+                enemies[index].GetComponent<Enemy>().setEncounter(this);
+            else if(enemies[index].TryGetComponent<SCP106>(out SCP106 e2))
+                e2.setEncounter(this);
             index++;
         }
     }
