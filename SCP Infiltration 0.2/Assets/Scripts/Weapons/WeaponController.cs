@@ -18,7 +18,6 @@ public class WeaponController : MonoBehaviour
     {
         if(weapon != null && ammo != 0)
         {
-            float timer = 0.0f;
             for(int i = 0; i < weapon.getRateOfFire(); i++)
             {
                 WeaponProjectile wp = Instantiate(weapon.getBulletPrefab(), fireLocation.transform.position, fireLocation.transform.rotation).GetComponent<WeaponProjectile>();

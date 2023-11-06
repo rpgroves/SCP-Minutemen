@@ -25,6 +25,11 @@ public class WeaponProjectile : MonoBehaviour
             if(other.gameObject.GetComponentInParent<PlayerHealth>())
                 other.gameObject.GetComponentInParent<PlayerHealth>().TakeDamage();
         }
+        else if(other.gameObject.tag == "EntitySpecial")
+        {
+            if(other.gameObject.GetComponentInParent<SCP106Barrier>())
+                other.gameObject.GetComponentInParent<SCP106Barrier>().TakeDamage(damage);
+        }
         else if(other.gameObject.tag == "Entity")
         {
             if(other.gameObject.GetComponentInParent<EnemyHealth>())

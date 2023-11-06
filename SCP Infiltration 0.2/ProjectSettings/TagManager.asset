@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Keycard
   - Entity
+  - EntitySpecial
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - 
   - 
   - Interactables
-  - 
+  - Projectile
   - 
   - 
   - 

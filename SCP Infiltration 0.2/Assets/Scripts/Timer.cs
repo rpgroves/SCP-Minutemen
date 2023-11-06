@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
 
     public void StartTimer(int t)
     {
-        StartCoroutine("CalculateTime");
+        //StartCoroutine("CalculateTime");
         StartCoroutine(CalculateTime());
     }
 

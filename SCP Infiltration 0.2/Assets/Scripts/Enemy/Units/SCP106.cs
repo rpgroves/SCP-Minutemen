@@ -6,14 +6,22 @@ using UnityEngine.AI;
 public class SCP106 : MonoBehaviour
 {
     [SerializeField] GameObject regularFire;
-    [SerializeField] GameObject roundShot1;
-    [SerializeField] GameObject roundShot2;
+    [SerializeField] GameObject regularFireEmitter;
+    [SerializeField] GameObject roundShot;
+    [SerializeField] GameObject[] roundShotEmitters;
+    [SerializeField] GameObject defensiveCircle;
     [SerializeField] int shotCountLimit = 0;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] float rotationMultiplier = 2.0f;
     int shotCountCurrent = 0;
     EnemyEncounterController encounter;
     GameObject target;
     NavMeshAgent agent;
     float shotTimer = 0.0f;
+    float burstTimer = 0.0f;
+    float burstTimer2 = 0.0f;
+    bool secondBurst = false;
+    bool isFacingRight = true;
 
     void Start()
     {
@@ -26,10 +34,27 @@ public class SCP106 : MonoBehaviour
     {
         HandleAim();
         shotTimer += Time.deltaTime;
+        burstTimer += Time.deltaTime;
+        if(secondBurst)
+            burstTimer2 += Time.deltaTime;
         if(shotTimer > 3.0f)
         {
             shotTimer = 0.0f;
             Shoot();
+        }
+        if(burstTimer > 6.0f)
+        {
+            roundShot.transform.Rotate(0.0f, 0.0f, 22.5f);
+            burstTimer = 0.0f;
+            ShootBurst();
+            secondBurst = true;
+        }
+        if(burstTimer2 > 1.0f)
+        {
+            roundShot.transform.Rotate(0.0f, 0.0f, -22.5f);
+            burstTimer2 = 0.0f;
+            ShootBurst();
+            secondBurst = false;
         }
 
         if(target == null)
@@ -40,6 +65,7 @@ public class SCP106 : MonoBehaviour
         {
             agent.SetDestination(target.transform.position);
         }
+        defensiveCircle.transform.Rotate(0.0f, 0.0f, Time.deltaTime * rotationMultiplier);
     }
 
     void HandleAim()
@@ -48,11 +74,13 @@ public class SCP106 : MonoBehaviour
         {
             if((((Vector2)target.transform.position - (Vector2)transform.position).normalized).x < 0)
             {
+                isFacingRight = false;
                 transform.localScale = new Vector3(-1, 1, 1);
                 regularFire.transform.right = (-((Vector2)target.transform.position - (Vector2)transform.position).normalized);
             }
             else
             {
+                isFacingRight = true;
                 transform.localScale = new Vector3(1, 1, 1);
                 regularFire.transform.right = (((Vector2)target.transform.position - (Vector2)transform.position).normalized);
             }
@@ -61,7 +89,19 @@ public class SCP106 : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("shooting!");
+        //Debug.Log("shooting!");
+        WeaponProjectile wp = Instantiate(bulletPrefab, regularFireEmitter.transform.position, regularFireEmitter.transform.rotation).GetComponent<WeaponProjectile>();
+        wp.StartMoving(1, isFacingRight);
+    }
+
+    void ShootBurst()
+    {
+        //Debug.Log("shooting burst!");
+        for(int i = 0; i < roundShotEmitters.Length; i++)
+        {
+            WeaponProjectile wp = Instantiate(bulletPrefab, roundShotEmitters[i].transform.position, roundShotEmitters[i].transform.rotation).GetComponent<WeaponProjectile>();
+            wp.StartMoving(1, isFacingRight);
+        }
     }
 
     public void setTarget(GameObject t)
