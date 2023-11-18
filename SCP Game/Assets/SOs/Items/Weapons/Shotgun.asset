@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373af9004b7d97b468a76fdc426d286a, type: 3}
+  m_Name: Shotgun
+  m_EditorClassIdentifier: 
+  itemName: Shotgun
+  itemType: MainWeapon
+  itemDescription: A semi automatic shotgun. It shoots spreads of pellets into enemies
+    and does major damage.
+  spriteBlack: {fileID: -264879180, guid: 480c519e159f82e4d96ed6f3b6efb776, type: 3}
+  spriteGlow: {fileID: -22814129, guid: 480c519e159f82e4d96ed6f3b6efb776, type: 3}
+  itemPrefab: {fileID: 3678068836825528127, guid: 6884cf7680fdfd443a1eaa66a849a2e8, type: 3}
+  fullBullet: {fileID: 214093691, guid: 5c27bd36079ab304c806cfbcbe27875e, type: 3}
+  emptyBullet: {fileID: -928329366, guid: 5c27bd36079ab304c806cfbcbe27875e, type: 3}
+  bulletPrefab: {fileID: 1226505007762545379, guid: 2ef232fe6683fc54ba7496d3a5023bb3, type: 3}
+  damage: 30
+  rateOfFire: 1
+  capacity: 5
+  spread: 50
