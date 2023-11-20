@@ -130,7 +130,7 @@ public class Interactable : MonoBehaviour
                 isSecondState = true;
             }
         }
-        InteractableHandler.GetComponent<InteractableHandler>().updateStatus(me);
+        InteractableHandler.GetComponent<InteractableHandler>().updateStatus(me, wasWon);
         isActivated = !isActivated;
     }
 }

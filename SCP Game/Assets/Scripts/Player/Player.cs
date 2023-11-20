@@ -18,9 +18,32 @@ public class Player : MonoBehaviour
     bool isClearingText = false;
     float timer = 0.0f;
     [SerializeField] float textClearTimer = 1.5f;
+    bool canShoot = false;
     public static Player Instance { get; private set; }
 
     void Awake()
+    {
+        FindInstance();
+    }
+
+    void Start()
+    {
+        FindInstance();
+        if(text1 != null)
+            text1.text = "";
+        if(text2 != null)
+            text2.text = "";
+        
+        playerMovement = this.GetComponent<PlayerMovement>();
+        playerInventory = this.GetComponent<PlayerInventory>();
+        playerHealth = this.GetComponent<PlayerHealth>();
+        weaponParent = weaponParentObject.GetComponent<WeaponParent>();
+        weaponParentObject.SetActive(false);
+
+        GameManager.Instance.SetupInventory(playerInventory);
+    }
+
+    void FindInstance()
     {
         int numPlayers = FindObjectsOfType<Player>().Length;
         if(numPlayers > 1)
@@ -31,20 +54,6 @@ public class Player : MonoBehaviour
         {
             Instance = this;
         }
-    }
-
-    void Start()
-    {
-        text1.text = "";
-        text2.text = "";
-        
-        playerMovement = this.GetComponentInParent<PlayerMovement>();
-        playerInventory = this.GetComponentInParent<PlayerInventory>();
-        playerHealth = this.GetComponentInParent<PlayerHealth>();
-        weaponParent = weaponParentObject.GetComponent<WeaponParent>();
-        weaponParentObject.SetActive(false);
-
-        GameManager.Instance.SetupInventory(playerInventory);
     }
 
     void Update()
@@ -61,7 +70,7 @@ public class Player : MonoBehaviour
             else
                 timer += Time.deltaTime;
         }
-        if(isPlayerInControl)
+        if(isPlayerInControl && playerMovement != null)
         {
             playerMovement.HandleMovement(rawInput);
             HandleWeaponPosition();
@@ -132,6 +141,7 @@ public class Player : MonoBehaviour
         WeaponSO w = playerInventory.getWeapon(1);
         if(w.getItemType() != "fakeObject")
         {
+            canShoot = true;
             weaponParentObject.SetActive(true);
             weaponParent.ChangeWeapon(w);
             playerInventory.UseWeapon(w);
@@ -143,6 +153,7 @@ public class Player : MonoBehaviour
         WeaponSO w = playerInventory.getWeapon(2);
         if(w.getItemType() != "fakeObject")
         {
+            canShoot = true;
             weaponParentObject.SetActive(true);
             weaponParent.ChangeWeapon(w);
             playerInventory.UseWeapon(w);
@@ -151,6 +162,7 @@ public class Player : MonoBehaviour
 
     public void OnWeaponChange3()
     {
+        canShoot = false;
         weaponParentObject.SetActive(false);
         playerInventory.UseWeapon(playerInventory.getWeapon(3));
     }

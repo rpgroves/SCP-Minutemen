@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e100a570746e84aa4c749ae1a27c10, type: 3}
+  m_Name: Puzzle 3 End Paper
+  m_EditorClassIdentifier: 
+  lines:
+  - Look, I'm just an engineer, so I have NO idea what that thing was. But if you're
+    reading this, turn on the power at your own risk.
+  - We think that killing the power might trap it, and we're going to stay here until
+    someone shows up to save us.
+  - The passcode to switch the power on is 1955. Good luck.

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e100a570746e84aa4c749ae1a27c10, type: 3}
+  m_Name: Power Room Exit Dialogue
+  m_EditorClassIdentifier: 
+  lines:
+  - Agent. We've detected that the power is back on in that sector. You should be
+    able to life the lockdown from the booth in the welcome center now.
+  - But be careful, sensors are picking up an SCP approaching that sector. We're
+    trying to identify it.

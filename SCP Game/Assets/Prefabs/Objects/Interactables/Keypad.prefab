@@ -103,12 +103,15 @@ MonoBehaviour:
   me: {fileID: 5283018470784055151}
   InteractableHandler: {fileID: 0}
   InteractableMinigame: {fileID: 6557809298523359152, guid: 5baab20f4c984e64886ea71d3dca1117, type: 3}
+  fileText: 
+  isBroken: 0
   spriteBlack: {fileID: 21300000, guid: 0498ee52e3890c441a8149775951d0b3, type: 2}
   spriteGlow: {fileID: 21300000, guid: a600a1f3623afc3429887a94602ece4f, type: 2}
   spriteSecondBlack: {fileID: 21300000, guid: dc7c043904c353047ab1c950b128eed1, type: 2}
   spriteSecondGlow: {fileID: 21300000, guid: 0dd022fa1c1d4014bb543bc5cfb14f33, type: 2}
   code: 2485
   requiredItem: 
+  cardSprite: {fileID: 0}
 --- !u!61 &4639354334891907481
 BoxCollider2D:
   m_ObjectHideFlags: 0

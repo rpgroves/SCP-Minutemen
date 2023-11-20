@@ -19,11 +19,13 @@ public class InteractableHandler : MonoBehaviour
         
     }
 
-    public void updateStatus(GameObject controller)
+    public void updateStatus(GameObject controller, bool isOn)
     {
         for(int x = 0; x < controllerStatus.Count; x++)
             if(controllers[x] == controller)
-                controllerStatus[x] = !controllerStatus[x];
+            {
+                controllerStatus[x] = isOn;
+            }
 
         bool allTrue = true;
         for(int x = 0; x < controllerStatus.Count; x++)
@@ -36,13 +38,13 @@ public class InteractableHandler : MonoBehaviour
 
         if(allTrue)
         {
-            //Debug.Log("sending signal...");
+            Debug.Log("sending start signal");
             for(int x = 0; x < ControlledEvent.Length; x++)
                 ControlledEvent[x].GetComponent<Event>().EventTriggered();
         }
         else
         {
-            //Debug.Log("sending signal...");
+            Debug.Log("sending stop signal");
             for(int x = 0; x < ControlledEvent.Length; x++)
                 ControlledEvent[x].GetComponent<Event>().EventStopped();
         }

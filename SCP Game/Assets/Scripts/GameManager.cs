@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     {
         if(inventory != null && PI != null)
         {
-            Debug.Log("setting up inventory");
             PI.SetInventory(inventory);
             PI.SetGear(gear);
             PI.SetWeapons(weapons);
@@ -39,6 +38,11 @@ public class GameManager : MonoBehaviour
         inventory = new List<InventoryObjectSO>(PI.GetInventory());
         gear = new List<InventoryObjectSO>(PI.GetGear());
         weapons = new List<WeaponSO>(PI.GetWeapons());
+    }
+
+    public void LoadSceneRegular(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 
     public void LoadScene(int index, Player player)

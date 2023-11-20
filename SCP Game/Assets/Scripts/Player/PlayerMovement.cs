@@ -6,8 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float runMulti = 1.5f;
+    float currentMoveSpeed = 0.0f;
     Animator myAnimator;
     Vector2 rawInput;
+    bool isRunning;
 
     bool isPlayerInControl = true;
 
@@ -26,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(isPlayerInControl)
         {
-            Vector3 delta = rawInput * moveSpeed * Time.deltaTime;
+            Vector3 delta = rawInput * currentMoveSpeed * Time.deltaTime;
             transform.position += delta;
         
             if(rawInput.x == 0 && rawInput.y == 0)
@@ -43,10 +45,19 @@ public class PlayerMovement : MonoBehaviour
             myAnimator.SetFloat("X Comp", rawInput.x);
             myAnimator.SetFloat("Y Comp", rawInput.y);
         }
+
+        if (Input.GetKey(KeyCode.LeftShift)) 
+        {
+			currentMoveSpeed = moveSpeed * runMulti;
+		}
+        else 
+        {
+			currentMoveSpeed = moveSpeed;
+		}
     }
 
     public void Run()
     {
-        moveSpeed = moveSpeed * runMulti;
+        //moveSpeed = moveSpeed * runMulti;
     }
 }

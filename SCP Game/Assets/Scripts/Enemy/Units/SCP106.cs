@@ -13,6 +13,9 @@ public class SCP106 : MonoBehaviour
     [SerializeField] int shotCountLimit = 0;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float rotationMultiplier = 2.0f;
+    [SerializeField] bool isUsingBarrier = false;
+    [SerializeField] bool isTeleporter = false;
+    EnemyHealth myHealth;
     int shotCountCurrent = 0;
     EnemyEncounterController encounter;
     GameObject target;
@@ -28,6 +31,8 @@ public class SCP106 : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        myHealth = GetComponent<EnemyHealth>();
+        defensiveCircle.SetActive(isUsingBarrier);
     }
 
     void Update()
@@ -66,6 +71,11 @@ public class SCP106 : MonoBehaviour
             agent.SetDestination(target.transform.position);
         }
         defensiveCircle.transform.Rotate(0.0f, 0.0f, Time.deltaTime * rotationMultiplier);
+
+        if(isTeleporter && myHealth.GetHealth() < (myHealth.GetMaxHealth() / 2))
+        {
+            GameManager.Instance.LoadScene(3, Player.Instance);
+        }
     }
 
     void HandleAim()
