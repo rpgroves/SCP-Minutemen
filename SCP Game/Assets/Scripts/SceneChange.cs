@@ -9,6 +9,6 @@ public class SceneChange : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        gameManager.LoadScene(sceneIndex);
+        gameManager.LoadScene(sceneIndex, null);
     }
 }

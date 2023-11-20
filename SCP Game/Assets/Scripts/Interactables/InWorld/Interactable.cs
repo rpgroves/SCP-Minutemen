@@ -10,6 +10,8 @@ public class Interactable : MonoBehaviour
     [SerializeField] GameObject InteractableHandler;
 
     [SerializeField] GameObject InteractableMinigame;
+    [SerializeField] string fileText = "";
+    [SerializeField] bool isBroken = false;
     Canvas canvas;
     bool isSecondState = false;
     bool isActivated = false;
@@ -20,6 +22,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] Sprite spriteSecondGlow;
     [SerializeField] string code = "";
     [SerializeField] string requiredItem = "";
+    [SerializeField] Sprite cardSprite;
 
     void Start()
     {
@@ -51,6 +54,12 @@ public class Interactable : MonoBehaviour
 
     public bool PlayerInteraction(List<InventoryObjectSO> inventory)
     {
+        if(isBroken)
+        {
+            Player.Instance.SetText("This seems to be broken.");
+            return false;
+        }
+
         //if condition not met
         if(requiredItem != "")
         {
@@ -64,15 +73,31 @@ public class Interactable : MonoBehaviour
                 }
             }
             if(!foundItem)
+            {
+                Player.Instance.SetText("I need a " + requiredItem + " to use this.");
                 return false;
+            }
         }
+
         GameObject gameOB = Instantiate(InteractableMinigame, canvas.transform);
         Minigame game = gameOB.GetComponent<Minigame>();
+        if(gameOB.GetComponent<KeycardSwipe>())
+        {
+            gameOB.GetComponent<KeycardSwipe>().setCardSprite(cardSprite);
+        }
         game.MinigameTriggered(isActivated);
         game.setInteractable(this);
         if (gameOB.TryGetComponent<Keypad>(out Keypad keypad))
         {
             keypad.UpdateCode(code);
+        }
+        if (gameOB.TryGetComponent<Switch>(out Switch sw))
+        {
+            sw.UpdateCode(code);
+        }
+        if (gameOB.TryGetComponent<Laptop>(out Laptop laptop))
+        {
+            laptop.UpdateCode(code);
         }
         return true;
     }

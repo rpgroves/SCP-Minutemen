@@ -1071,6 +1071,7 @@ MonoBehaviour:
   red: {fileID: 868070069, guid: 908be4f18dd862b48861bf8af2e3a533, type: 3}
   green: {fileID: -341307837, guid: 908be4f18dd862b48861bf8af2e3a533, type: 3}
   cover: {fileID: 5847305004151982999}
+  card: {fileID: 6805880894795657946}
 --- !u!1 &8562405707638762057
 GameObject:
   m_ObjectHideFlags: 0

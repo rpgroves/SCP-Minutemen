@@ -99,6 +99,11 @@ public class Switch : MonoBehaviour, Minigame
         }
     }
 
+    public void UpdateCode(string s)
+    {
+        passcode = s;
+    }
+
     public void MinigameTriggered(bool isActivated)
     {
         if(isActivated)

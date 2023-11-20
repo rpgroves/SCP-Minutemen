@@ -38,7 +38,7 @@ public class Keypad : MonoBehaviour, Minigame
             else
             {
                 this.GetComponentInParent<Image>().sprite = red;
-                SendSignal(false);
+                //SendSignal(false);
             }
             KeypadReset(false);
         }

@@ -10,6 +10,8 @@ public class Dialogue : MonoBehaviour
     TextMeshProUGUI textComponent;
     [SerializeField] DialogueSO dialogueSO;
     [SerializeField] float textSpeed;
+    [SerializeField] Sprite playerSprite;
+    [SerializeField] Sprite speakerSprite;
     bool dialogueOn = false;
     int index;
     string[] lines;
@@ -44,6 +46,9 @@ public class Dialogue : MonoBehaviour
         textComponent.text = "";
         index = 0;
         StartCoroutine(TypeLine());
+
+        dialogueBox.SetImageLeft(playerSprite);
+        dialogueBox.SetImageRight(speakerSprite);
     }
 
     IEnumerator TypeLine()

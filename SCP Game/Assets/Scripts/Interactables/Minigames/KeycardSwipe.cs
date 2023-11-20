@@ -10,8 +10,14 @@ public class KeycardSwipe : MonoBehaviour, Minigame
     [SerializeField] Sprite red;
     [SerializeField] Sprite green;
     [SerializeField] GameObject cover;
+    [SerializeField] Image card;
     Interactable myInteractable = null;
+    Sprite cardSprite;
 
+    void Start()
+    {
+        card.sprite = cardSprite;
+    }
     public void KeySwipped() 
     {
         if(cover.GetComponent<Image>().sprite == red)
@@ -53,5 +59,9 @@ public class KeycardSwipe : MonoBehaviour, Minigame
     public void setInteractable(Interactable i)
     {
         myInteractable = i;
+    }
+    public void setCardSprite(Sprite s)
+    {
+        cardSprite = s;
     }
 }

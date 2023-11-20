@@ -131,6 +131,21 @@ public class PlayerInventory : MonoBehaviour
         return weapons;
     }
 
+    public void SetInventory(List<InventoryObjectSO> i)
+    {
+        inventory = i;
+    }
+
+    public void SetGear(List<InventoryObjectSO> g)
+    {
+        gear = g;
+    }
+
+    public void SetWeapons(List<WeaponSO> w)
+    {
+        weapons = w;
+    }
+
     public void removeFromInventory(InventoryObjectSO i)
     {
         inventory.Remove(i);

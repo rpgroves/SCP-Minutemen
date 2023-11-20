@@ -60,12 +60,10 @@ public class Enemy : MonoBehaviour
     
         if(rawInput.x == 0 && rawInput.y == 0)
         {
-            Debug.Log("Not moving!");
             myAnimator.SetBool("isRunning", false);
             myAnimator.SetBool("isIdle", true);
             return;
         }
-        Debug.Log(rawInput);
         
         myAnimator.SetBool("isRunning", true);
         myAnimator.SetBool("isIdle", false);
