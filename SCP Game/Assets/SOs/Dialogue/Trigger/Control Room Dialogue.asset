@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: Control Room Dialogue
   m_EditorClassIdentifier: 
   lines:
-  - "Agent, we can see the progress you've made so far.\t"
-  - It seems that the button inside this room will give you access to the rest of
-    Entrance Zone Sector 1 to the east.
-  - 'After that you''ll need to get to Sector 2 to the west. But due to a power failure
-    in Sector 1, access is still cutoff to ourside sectors. '
-  - You will need to find a way into the power station in this sector, then fix any
-    broken generators you find.
+  - Good job getting inside. After opening up the room you need to go west. There
+    is a power substation and if you can get the power back on then the lockdown
+    should be reset and you can come back here to raise it.
   - Good luck, command out.

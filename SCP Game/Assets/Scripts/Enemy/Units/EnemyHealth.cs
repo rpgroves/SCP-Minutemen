@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
             currentHealth = 0;
         if(currentHealth == 0)
         {
-            Destroy(me);
+            GetComponentInParent<EnemyEncounterController>().Remove(me);
         }
     }
 

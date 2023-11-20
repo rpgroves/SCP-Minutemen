@@ -104,8 +104,11 @@ public class Player : MonoBehaviour
 
     void OnFire()
     {
-        playerInventory.ShootBullet();
-        weaponParent.HandleFire();
+        if(canShoot)
+        {
+            playerInventory.ShootBullet();
+            weaponParent.HandleFire();
+        }
     }
 
     void OnReload()

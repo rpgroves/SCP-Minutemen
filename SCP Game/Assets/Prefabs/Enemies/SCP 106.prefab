@@ -1677,7 +1677,7 @@ MonoBehaviour:
   - {fileID: 1885366569540708328}
   - {fileID: 2523938105895454330}
   defensiveCircle: {fileID: 1036339496285789607}
-  shotCountLimit: 5
+  shotCountLimit: 2
   bulletPrefab: {fileID: 4983842303844075274, guid: e6dc8d0207779fc4e96c5800469cf8f8, type: 3}
   rotationMultiplier: 5
   isUsingBarrier: 0

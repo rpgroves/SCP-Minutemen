@@ -18,6 +18,8 @@ Important Notes for this version:
     not to spam the f or tab keys
     - The player cannot currently recover health, but they can recover shields by staying out of
     combat / not being injured for long enough.
+    - Some enemies may get stuck on objects, this is something i can fix later but it will take some time
+    as i have to manually do a lot of the editing for the enemy pathfinding
 
 Gameplay Guide:
     Currently, the game is split into a few main sections:

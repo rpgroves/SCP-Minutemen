@@ -20,6 +20,8 @@ public class SCP106 : MonoBehaviour
     EnemyEncounterController encounter;
     GameObject target;
     NavMeshAgent agent;
+    public float shot1Timer = 1.0f;
+    public float shot2Timer = 2.0f;
     float shotTimer = 0.0f;
     float burstTimer = 0.0f;
     float burstTimer2 = 0.0f;
@@ -42,12 +44,12 @@ public class SCP106 : MonoBehaviour
         burstTimer += Time.deltaTime;
         if(secondBurst)
             burstTimer2 += Time.deltaTime;
-        if(shotTimer > 3.0f)
+        if(shotTimer > shot1Timer)
         {
             shotTimer = 0.0f;
             Shoot();
         }
-        if(burstTimer > 6.0f)
+        if(burstTimer > shot2Timer)
         {
             roundShot.transform.Rotate(0.0f, 0.0f, 22.5f);
             burstTimer = 0.0f;
