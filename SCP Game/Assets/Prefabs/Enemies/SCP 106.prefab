@@ -1682,6 +1682,8 @@ MonoBehaviour:
   rotationMultiplier: 5
   isUsingBarrier: 0
   isTeleporter: 1
+  shot1Timer: 1
+  shot2Timer: 2
 --- !u!114 &4620337303047827674
 MonoBehaviour:
   m_ObjectHideFlags: 0

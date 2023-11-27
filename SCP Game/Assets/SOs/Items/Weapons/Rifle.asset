@@ -22,7 +22,7 @@ MonoBehaviour:
   fullBullet: {fileID: -1682112104, guid: 5c27bd36079ab304c806cfbcbe27875e, type: 3}
   emptyBullet: {fileID: -32021988, guid: 5c27bd36079ab304c806cfbcbe27875e, type: 3}
   bulletPrefab: {fileID: 1226505007762545379, guid: 2ef232fe6683fc54ba7496d3a5023bb3, type: 3}
-  damage: 15
+  damage: 10
   rateOfFire: 3
   capacity: 30
   spread: 5

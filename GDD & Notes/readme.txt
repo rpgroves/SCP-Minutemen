@@ -7,11 +7,9 @@ Controls:
     LMB - shoot
     r - reload
 
-Important Notes for this version:
+Important Bugs/Notes for this version:
     - no sounds yet, but this is something that will be changing soon!
-    - while the computers you can interact with may seem important, they do not yet
-    have any effect on gameplay, if you would like to see what one looks like however,
-    the password to the ones in the security stations is "1111"
+    - computers might look important but do nothing currently, passcode for all is 1111 right now
     - currently, using the interact key multiple times on an object, or the inventory key,
     will likely result in the same menu opening many instances instead of one, (ie. you might
     spawn a bunch of inventory boxes and have to close a bunch of them), so be careful
@@ -20,6 +18,9 @@ Important Notes for this version:
     combat / not being injured for long enough.
     - Some enemies may get stuck on objects, this is something i can fix later but it will take some time
     as i have to manually do a lot of the editing for the enemy pathfinding
+    - IMPORTANT: In the boss fight, killing the boss may cause you to immediately teleport to the credits scene
+    this is something im aware of but havent been able to pin down yet
+
 
 Gameplay Guide:
     Currently, the game is split into a few main sections:
