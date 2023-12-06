@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    public AudioSource source;
     [SerializeField] GameObject fireLocation;
     WeaponSO weapon;
 
     int ammo = 0;
+
+    void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     public void HandleReload(int a)
     {
@@ -18,6 +24,7 @@ public class WeaponController : MonoBehaviour
     {
         if(weapon != null && ammo != 0)
         {
+            source.PlayOneShot(weapon.getClip());
             for(int i = 0; i < weapon.getRateOfFire(); i++)
             {
                 WeaponProjectile wp = Instantiate(weapon.getBulletPrefab(), fireLocation.transform.position, fireLocation.transform.rotation).GetComponent<WeaponProjectile>();

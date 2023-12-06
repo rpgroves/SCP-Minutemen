@@ -5,6 +5,8 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
+    public AudioSource source;
+    public AudioClip clip1;
     [SerializeField] GameObject DialogueBoxPrefab;
     DialogueBox dialogueBox;
     TextMeshProUGUI textComponent;
@@ -15,6 +17,11 @@ public class Dialogue : MonoBehaviour
     bool dialogueOn = false;
     int index;
     string[] lines;
+
+    void Start()
+    {
+        source.clip = clip1;
+    }
 
     void Update()
     {
@@ -56,6 +63,8 @@ public class Dialogue : MonoBehaviour
         foreach(char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
+            source.pitch = Random.Range(.7f, .9f);
+            source.Play();
             yield return new WaitForSeconds(textSpeed);
         }
     }

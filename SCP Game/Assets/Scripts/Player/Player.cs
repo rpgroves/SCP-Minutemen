@@ -12,14 +12,14 @@ public class Player : MonoBehaviour
     PlayerHealth playerHealth;
     [SerializeField] GameObject weaponParentObject;
     WeaponParent weaponParent;
-    bool isPlayerInControl = true;
+    public bool isPlayerInControl = true;
     [SerializeField] TextMeshProUGUI text1;
     [SerializeField] TextMeshProUGUI text2;
     bool isClearingText = false;
     float timer = 0.0f;
     [SerializeField] float textClearTimer = 1.5f;
     bool canShoot = false;
-    public static Player Instance { get; private set; }
+    public static Player Instance { get; set; }
 
     void Awake()
     {

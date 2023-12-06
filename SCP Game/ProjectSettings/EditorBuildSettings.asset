@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits Menu.unity
     guid: 0c672dee910f4114899f58bb8370a0af
+  - enabled: 1
+    path: Assets/Scenes/Helicopter Cutscene.unity
+    guid: f321ec1305763c04e84acce4ca3e6ae8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 897640dba16fe7a44b021e258c04c6dc, type: 2}

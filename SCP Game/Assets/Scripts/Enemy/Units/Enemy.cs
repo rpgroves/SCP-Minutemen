@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
+    AudioSource source;
+    public AudioClip clip;
     [SerializeField] GameObject weaponParentObject;
     [SerializeField] WeaponSO weapon;
     EnemyEncounterController encounter;
@@ -15,9 +17,13 @@ public class Enemy : MonoBehaviour
     NavMeshAgent agent;
 
     float shotTimer = 0.0f;
+    bool isMoving = false;
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
+        source.clip = clip;
+
         weaponParent = weaponParentObject.GetComponent<WeaponParent>();
         weaponParentObject.SetActive(true);
         weaponParent.ChangeWeapon(weapon);
@@ -60,11 +66,19 @@ public class Enemy : MonoBehaviour
     
         if(rawInput.x == 0 && rawInput.y == 0)
         {
+            isMoving = false;
+            source.Stop();
+
             myAnimator.SetBool("isRunning", false);
             myAnimator.SetBool("isIdle", true);
             return;
         }
-        
+        if(!isMoving)
+        {
+            isMoving = true;
+            source.Play();
+        }
+
         myAnimator.SetBool("isRunning", true);
         myAnimator.SetBool("isIdle", false);
 

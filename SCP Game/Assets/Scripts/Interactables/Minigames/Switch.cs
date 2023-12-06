@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Switch : MonoBehaviour, Minigame
 {
+    public AudioSource source;
+    public AudioClip clip1;
+    public AudioClip clip2;
     [SerializeField] string passcode;
     [SerializeField] GameObject[] buttons;
     [SerializeField] Sprite up;
@@ -85,16 +88,22 @@ public class Switch : MonoBehaviour, Minigame
         if(i == 0)
         {
             SendSignal(false);
+            source.clip = clip1;
+            source.Play();
             Indicator.GetComponent<Image>().sprite = indicatorOff;
         }
         if(i == 1)
         {
             SendSignal(false);
+            source.clip = clip2;
+            source.Play();
             Indicator.GetComponent<Image>().sprite = indicatorRed;
         }
         if(i == 2)
         {
             SendSignal(true);
+            source.clip = clip1;
+            source.Play();
             Indicator.GetComponent<Image>().sprite = indicatorGreen;
         }
     }

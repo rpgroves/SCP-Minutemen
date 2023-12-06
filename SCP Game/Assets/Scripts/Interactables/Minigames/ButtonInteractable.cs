@@ -5,6 +5,9 @@ using TMPro;
 using UnityEngine.UI;
 public class ButtonInteractable : MonoBehaviour, Minigame
 {
+    public AudioSource source;
+    public AudioClip clip1;
+    public AudioClip clip2;
     [SerializeField] GameObject button;
     [SerializeField] TextMeshProUGUI guiText;
     [SerializeField] Sprite red;
@@ -22,14 +25,17 @@ public class ButtonInteractable : MonoBehaviour, Minigame
         {
             this.GetComponentInParent<Image>().sprite = green;
             guiText.text = "Open";
+            source.clip = clip1;
             SendSignal(true);
         }
         else
         {
             this.GetComponentInParent<Image>().sprite = red;
             guiText.text = "Closed";
+            source.clip = clip2;
             SendSignal(false);
         }
+        source.Play();
     }
 
     public void MinigameTriggered(bool isActivated)

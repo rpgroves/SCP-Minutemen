@@ -21,6 +21,13 @@ public class WeaponSO : ScriptableObject, InventoryObjectSO
     [SerializeField] int capacity;
     [SerializeField] int spread;
 
+    [SerializeField] AudioClip clip;
+
+    public AudioClip getClip()
+    {
+        return clip;
+    }
+
     public string getItemName()
     {
         return itemName;

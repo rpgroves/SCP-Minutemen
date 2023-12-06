@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Keypad : MonoBehaviour, Minigame
 {
+    public AudioSource source;
+    public AudioClip clip1;
+    public AudioClip clip2;
     [SerializeField] string passcode;
     [SerializeField] GameObject[] buttons;
     [SerializeField] TextMeshProUGUI guiText;
@@ -34,11 +37,15 @@ public class Keypad : MonoBehaviour, Minigame
             {
                 this.GetComponentInParent<Image>().sprite = green;
                 SendSignal(true);
+                source.clip = clip1;
+                source.Play();
             }
             else
             {
                 this.GetComponentInParent<Image>().sprite = red;
-                //SendSignal(false);
+                SendSignal(false);
+                source.clip = clip2;
+                source.Play();
             }
             KeypadReset(false);
         }

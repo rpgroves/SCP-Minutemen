@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    AudioSource source;
+    public AudioClip walkClip;
+    public AudioClip runClip;
     [SerializeField] float moveSpeed = 3f;
     [SerializeField] float runMulti = 1.5f;
     float currentMoveSpeed = 0.0f;
     Animator myAnimator;
     Vector2 rawInput;
-    bool isRunning;
+    bool isAudioPlaying = false;
 
     bool isPlayerInControl = true;
+    bool isRunning = false;
 
     void Start()
     {
+        source = GetComponent<AudioSource>();
         myAnimator = GetComponent<Animator>();
     }
 
@@ -33,10 +38,15 @@ public class PlayerMovement : MonoBehaviour
         
             if(rawInput.x == 0 && rawInput.y == 0)
             {
+                isAudioPlaying = false;
+                isRunning = false;
+                source.Stop();
                 myAnimator.SetBool("isRunning", false);
                 myAnimator.SetBool("isIdle", true);
                 return;
             }
+
+            
             
             myAnimator.SetBool("isRunning", true);
             myAnimator.SetBool("isIdle", false);
@@ -48,10 +58,26 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift)) 
         {
+            if(!isAudioPlaying || !isRunning)
+            {
+                source.Stop();
+                source.clip = runClip;
+                source.Play();
+                isAudioPlaying = true;
+                isRunning = true;
+            }
 			currentMoveSpeed = moveSpeed * runMulti;
 		}
         else 
         {
+            if(!isAudioPlaying || isRunning)
+            {
+                source.Stop();
+                source.clip = walkClip;
+                source.Play();
+                isAudioPlaying = true;
+                isRunning = false;
+            }
 			currentMoveSpeed = moveSpeed;
 		}
     }

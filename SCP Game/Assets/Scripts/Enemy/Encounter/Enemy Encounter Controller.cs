@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyEncounterController : MonoBehaviour
 {
+    AudioManager audioManager;
+    public bool isBossBattle = false;
     [SerializeField] List<GameObject> enemies;
     [SerializeField] float[] timeForSpawns;
     [SerializeField] GameObject[] nodes;
@@ -21,6 +23,7 @@ public class EnemyEncounterController : MonoBehaviour
     void Start()
     {
         enemyCount = enemies.Count;
+        audioManager = AudioManager.Instance;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -28,6 +31,10 @@ public class EnemyEncounterController : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             isTriggered = true;
+            if(!isBossBattle)
+                audioManager.FightAudio();
+            else
+                audioManager.BossAudio();
             foreach(GameObject e in controlledEventStopOnTrigger)
             {
                 e.GetComponent<Event>().EventStopped();
@@ -55,6 +62,7 @@ public class EnemyEncounterController : MonoBehaviour
             {
                 e.GetComponent<Event>().EventTriggered();
             }
+            audioManager.NeutralAudio();
             Destroy(this.gameObject);
         }
 

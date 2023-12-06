@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WeaponProjectile : MonoBehaviour
 {
+    public SpriteRenderer sprite;
+    public AudioSource source;
+    public AudioClip clip;
     [SerializeField] GameObject me;
     [SerializeField] float projectileSpeed = 5.0f;
     int damage;
@@ -39,7 +42,16 @@ public class WeaponProjectile : MonoBehaviour
             if(other.gameObject.GetComponentInParent<EnemyHealth>())
                 other.gameObject.GetComponentInParent<EnemyHealth>().TakeDamage(damage);
         }
-        Destroy(me);
         
+        StartCoroutine(DoDestruction());
+    }
+
+    IEnumerator DoDestruction()
+    {
+        Destroy(sprite);
+        source.clip = clip;
+        source.Play();
+        yield return new WaitForSeconds(.4f);
+        Destroy(me);
     }
 }

@@ -6,6 +6,8 @@ using TMPro;
 
 public class SaveStationInteractable : MonoBehaviour
 {
+    public AudioSource source;
+    public AudioClip clip1;
     [SerializeField] TextMeshProUGUI loadStatusText;
     [SerializeField] float loadTime;
     Slider slider;
@@ -24,12 +26,13 @@ public class SaveStationInteractable : MonoBehaviour
             timer += Time.deltaTime;
             slider.value = timer/loadTime;
         }
-        else
+        else if (isLoading)
         {
-            timer = 0;
             isLoading = false;
-            GameManager.Instance.Save(Player.Instance.GetInventory());
+            GameManager.Instance.Save(Player.Instance.GetInventory(), true);
             loadStatusText.text = "Saved!";
+            source.clip = clip1;
+            source.Play();
         }
     }
 

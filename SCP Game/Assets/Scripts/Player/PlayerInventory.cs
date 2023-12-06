@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
+    public AudioSource AuxAudioPlayer;
+    public AudioClip pickup;
     [SerializeField] GameObject inventoryPrefab;
 
     List<GameObject> InteractablesInRange = new List<GameObject>();
@@ -71,6 +73,7 @@ public class PlayerInventory : MonoBehaviour
                     inventory[index] = i.GetComponent<InventoryObject>().GetSO();
                     ItemsInRange.Remove(i);
                     Destroy(i);
+                    AuxAudioPlayer.PlayOneShot(pickup);
                     return;
                 }
             }

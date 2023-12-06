@@ -26,3 +26,4 @@ MonoBehaviour:
   rateOfFire: 1
   capacity: 5
   spread: 50
+  clip: {fileID: 8300000, guid: a764377339b869e459f5e53fb9258f73, type: 3}

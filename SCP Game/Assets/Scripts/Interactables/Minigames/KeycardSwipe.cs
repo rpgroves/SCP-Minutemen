@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class KeycardSwipe : MonoBehaviour, Minigame
 {
+    public AudioSource source;
+    public AudioClip clip1;
+    public AudioClip clip2;
     [SerializeField] TextMeshProUGUI guiText;
     [SerializeField] Sprite red;
     [SerializeField] Sprite green;
@@ -24,12 +27,16 @@ public class KeycardSwipe : MonoBehaviour, Minigame
         {
             cover.GetComponent<Image>().sprite = green;
             guiText.text = "Open";
+            source.clip = clip1;
+            source.Play();
             SendSignal(true);
         }
         else
         {
             cover.GetComponent<Image>().sprite = red;
             guiText.text = "Closed";
+            source.clip = clip2;
+            source.Play();
             SendSignal(false);
         }
     }

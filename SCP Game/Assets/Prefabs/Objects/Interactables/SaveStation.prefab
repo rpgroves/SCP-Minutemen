@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 2.68, y: -11.56, z: -0.7741964}
   m_LocalScale: {x: 0.6999999, y: 0.6999999, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3169854059151293657}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 990}
 --- !u!212 &650918057321320661
@@ -102,6 +103,8 @@ MonoBehaviour:
   me: {fileID: 2837909392182214754}
   InteractableHandler: {fileID: 0}
   InteractableMinigame: {fileID: 8530534298306428615, guid: d6e43203cbeba8f47a6cd58c1c6a9306, type: 3}
+  fileText: 
+  isBroken: 0
   spriteBlack: {fileID: 1668188604, guid: 9a14b16567c0b714b8b0f4151c2e3673, type: 3}
   spriteGlow: {fileID: 1723418805, guid: 9a14b16567c0b714b8b0f4151c2e3673, type: 3}
   spriteSecondBlack: {fileID: 0}
@@ -154,3 +157,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.736267, y: 3.110756}
   m_EdgeRadius: 0
+--- !u!1 &5885570385281099171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3169854059151293657}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3169854059151293657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885570385281099171}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.339, y: -1.282, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1827189727089125555}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

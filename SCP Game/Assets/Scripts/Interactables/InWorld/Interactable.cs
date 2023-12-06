@@ -23,10 +23,21 @@ public class Interactable : MonoBehaviour
     [SerializeField] string code = "";
     [SerializeField] string requiredItem = "";
     [SerializeField] Sprite cardSprite;
+    GameObject gameOB;
+    bool isGameOn = false;
 
     void Start()
     {
         canvas = GameObject.FindObjectOfType<Canvas>();
+    }
+
+    void Update()
+    {
+        if(isGameOn && gameOB == null)
+        {
+            isGameOn = false;
+            Player.Instance.isPlayerInControl = true;
+        }
     }
     
     void OnTriggerEnter2D(Collider2D other)
@@ -79,8 +90,12 @@ public class Interactable : MonoBehaviour
             }
         }
 
-        GameObject gameOB = Instantiate(InteractableMinigame, canvas.transform);
+        gameOB = Instantiate(InteractableMinigame, canvas.transform);
         Minigame game = gameOB.GetComponent<Minigame>();
+
+        isGameOn = true;
+        Player.Instance.isPlayerInControl = false;
+
         if(gameOB.GetComponent<KeycardSwipe>())
         {
             gameOB.GetComponent<KeycardSwipe>().setCardSprite(cardSprite);
@@ -106,6 +121,10 @@ public class Interactable : MonoBehaviour
     {
         GameObject gameOB = Instantiate(InteractableMinigame, canvas.transform);
         Minigame game = gameOB.GetComponent<Minigame>();
+
+        isGameOn = true;
+        Player.Instance.isPlayerInControl = false;
+
         game.MinigameTriggered(isActivated);
         game.setInteractable(this);
         if (gameOB.TryGetComponent<Keypad>(out Keypad keypad))
